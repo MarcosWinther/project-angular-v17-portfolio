@@ -1,16 +1,26 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 
 // Interface
 import { IProjects } from '../../interface/Projects.interface';
 
+// Material
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+
+// Enum
+import { EDialogPanelClass } from '../../enum/EDialogPanelClass.enum';
+
+import { DialogProjectsComponent } from '../dialog/dialog-projects/dialog-projects.component';
+
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [],
+  imports: [MatDialogModule],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss'
 })
 export class ProjectsComponent {
+  #dialog = inject(MatDialog);
+
   public arrayProjects = signal<IProjects[]>([
     {
       src: 'aaa',
@@ -27,4 +37,11 @@ export class ProjectsComponent {
       ],
     },
   ]);
+
+  public openDialog(data: IProjects) {
+    this.#dialog.open(DialogProjectsComponent, {
+      data,
+      panelClass: EDialogPanelClass.PROJECTS
+    })
+  }
 }
