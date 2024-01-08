@@ -29,7 +29,7 @@ export class ProjectsComponent {
       width: '100px',
       height: '51px',
       description: 'aaaa',
-      link: [
+      links: [
         {
           name: '',
           href: '',
