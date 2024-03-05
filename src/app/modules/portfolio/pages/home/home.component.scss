@@ -1,0 +1,27 @@
+:host {
+  width: 100%;
+
+  section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px 0;
+    text-align: center;
+  }
+
+  footer {
+    background: var(--primary);
+    height: 60px;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    p {
+      color: var(--white);
+    }
+  }
+}
